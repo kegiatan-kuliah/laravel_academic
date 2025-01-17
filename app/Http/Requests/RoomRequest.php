@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SubjectRequest extends FormRequest
+class RoomRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,9 @@ class SubjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5|max:100',
-            'code' => 'required|min:5|max:10|unique:subjects,code,'.$this->id
+            'class_id' => 'required|min:5|max:20|unique:rooms,class_id'.$this->id,
+            'teacher_id' => 'required',
+            'subject_id' => 'required'
         ];
     }
 

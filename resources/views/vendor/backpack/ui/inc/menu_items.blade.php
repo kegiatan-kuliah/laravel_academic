@@ -4,3 +4,4 @@
 <x-backpack::menu-item title="Students" icon="la la-graduation-cap" :link="backpack_url('student')" />
 <x-backpack::menu-item title="Teachers" icon="la la-school" :link="backpack_url('teacher')" />
 <x-backpack::menu-item title="Subjects" icon="la la-briefcase" :link="backpack_url('subject')" />
+<x-backpack::menu-item title="Rooms" icon="la la-building" :link="backpack_url('room')" />
