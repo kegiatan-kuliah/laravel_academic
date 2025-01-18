@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StudentRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-
 /**
  * Class StudentCrudController
  * @package App\Http\Controllers\Admin
@@ -40,7 +39,6 @@ class StudentCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::setFromDb(); // set columns from db columns.
-
         /**
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\GradeRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 /**
  * Class GradeCrudController
  * @package App\Http\Controllers\Admin
@@ -39,6 +39,7 @@ class GradeCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::addButtonFromModelFunction('top', 'export_button', 'export', 'end');
         CRUD::column([
             'label' => 'Grade',
             'name' => 'grade',
@@ -136,5 +137,12 @@ class GradeCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function export()
+    {
+        $grades = \App\Models\Grade::orderBy('grade','desc')->get();   
+        $pdf = Pdf::loadView('export.grade',['grades' => $grades]);
+        return $pdf->stream();
     }
 }

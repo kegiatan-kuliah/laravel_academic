@@ -21,6 +21,7 @@ Route::group([
     Route::crud('subject', 'SubjectCrudController');
     Route::crud('room', 'RoomCrudController');
     Route::crud('grade', 'GradeCrudController');
+    Route::get('/grade/export', 'GradeCrudController@export')->name('grade.export');
 }); // this should be the absolute last line of this file
 
 /**
